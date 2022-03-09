@@ -101,7 +101,7 @@ def correct_walls(sample):
 
     for i in range(1, sample.shape[0] - 1):
         for j in range(1, sample.shape[1] - 1):
-            if sample[i, j] == 1:
+            if sample[i, j] == 1 or sample[i, j] == 7:
                 sample[i, j] = 0
 
 
