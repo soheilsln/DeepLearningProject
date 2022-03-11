@@ -1094,7 +1094,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Generate Level
+  m_Text: 'Generate New Level
 
 '
 --- !u!222 &1841218993
@@ -1134,6 +1134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9cc60eee02a2044c821c1ee0c5de315, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  generateLevelButton: {fileID: 69170894}
   prefabs:
   - {fileID: 479957552425413584, guid: e6b4c56ba366d924d81dd9a53c02fc2d, type: 3}
   - {fileID: 6313185651933892385, guid: d2a147bb929804f42ba5f28536639c2c, type: 3}

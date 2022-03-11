@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class LevelGenerator : MonoBehaviour
 {
     private string uri = "https://levelgenerator.herokuapp.com";
     private string level = "";
     private int[,] levelMatrix;
+    public Button generateLevelButton;
 
     public GameObject[] prefabs;
 
@@ -16,7 +18,14 @@ public class LevelGenerator : MonoBehaviour
     {
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+            generateLevelButton.GetComponentInChildren<Text>().text = "Loading...";
+            generateLevelButton.interactable = false;
+
             yield return webRequest.SendWebRequest();
+
+            generateLevelButton.GetComponentInChildren<Text>().text = "Generate New Level";
+            generateLevelButton.interactable = true;
+
 
             string[] pages = uri.Split('/');
             int page = pages.Length - 1;
