@@ -16,8 +16,10 @@ public class LevelGenerator : MonoBehaviour
 
     private IEnumerator GetRequest(string uri)
     {
+        //HTTP request to get data from our Heroku website
         using (UnityWebRequest webRequest = UnityWebRequest.Get(uri))
         {
+            //Change the text button to Loading
             generateLevelButton.GetComponentInChildren<Text>().text = "Loading...";
             generateLevelButton.interactable = false;
 
@@ -51,6 +53,7 @@ public class LevelGenerator : MonoBehaviour
 
     private int[,] LoadLevelMatrix(string level)
     {
+        //Parse into the string data and load data in a matrix
         int[,] levelMatrix = new int[128, 128];
         string[] values = Regex.Split(level, @"\D+");
 
@@ -72,11 +75,14 @@ public class LevelGenerator : MonoBehaviour
 
     public void GenerateLevel()
     {
+        //Start generate level coroutine
+        //Called after clicking on the generate level button
         StartCoroutine(GetRequest(uri));
     }
 
     private void CreateLevel(int[,] levelMatrix)
     {
+        //Instantiate the prefabs based on the level matrix
         foreach (Transform child in this.transform)
             Destroy(child.gameObject);
 

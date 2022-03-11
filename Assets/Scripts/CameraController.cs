@@ -9,6 +9,8 @@ public class CameraController : MonoBehaviour
 
     public void SwitchCameras()
     {
+        //Switches between all cameras
+        //Called after clicking on switch camera button
         cameras[currentCamera].gameObject.SetActive(false);
 
         if (currentCamera == cameras.Length - 1)
